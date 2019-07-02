@@ -6,6 +6,14 @@ var bodyParser = require('body-parser');
 //initialize variables
 var app = express();
 
+//CORS
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    res.header("Access-Control-Allow-Methods", "POST, GET, PUT, DELETE, OPTIONS");
+    next();
+});
+
 //Body Parser
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }))
@@ -17,10 +25,9 @@ var appRoutes = require('./routes/app');
 var usuarioRoutes = require('./routes/usuario');
 
 
-//DB conection // DB  mongodb+srv://admin:<password>@bancoaccenturedb-aixfv.mongodb.net/test?retryWrites=true&w=majority
 //mongodb://localhost:27017/bancoDB
 
-mongoose.connection.openUri('mongodb+srv://admin:adminAccenture@bancodb-1ccnu.mongodb.net/test?retryWrites=true&w=majority', (err,res) =>{
+mongoose.connection.openUri('mongodb+srv://admin:<password>@accenturebank-6dgm4.mongodb.net/test?retryWrites=true&w=majority', (err,res) =>{
     if (err) throw err;
     console.log('Base de datos: \x1b[36m%s\x1b[0m', 'online');
 })
