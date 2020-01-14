@@ -27,7 +27,7 @@ var usuarioRoutes = require('./routes/usuario');
 
 //mongodb://localhost:27017/bancoDB
 
-mongoose.connection.openUri('mongodb+srv://admin:adminAccenture@accenturebank-6dgm4.mongodb.net/test?retryWrites=true&w=majority', (err,res) =>{
+mongoose.connection.openUri('mongodb+srv://*****:*****Accenture@accenturebank-6dgm4.mongodb.net/test?retryWrites=true&w=majority', (err,res) =>{
     if (err) throw err;
     console.log('Base de datos: \x1b[36m%s\x1b[0m', 'online');
 })
